@@ -16,7 +16,7 @@ public class Balls {
         }
         ballList = new ArrayList<>();
 
-        for(int i = 0 ; i < 2 ; i++){
+        for(int i = 0 ; i < 3 ; i++){
             ballList.add(new Ball(i,numberList.get(i)));
         }
 
@@ -32,5 +32,9 @@ public class Balls {
                 .filter(ballMatchStatus -> ballMatchStatus!=BallMatchStatus.NOTHING)
                 .findFirst()
                 .orElse(BallMatchStatus.NOTHING);
+    }
+
+    List<Ball> getBallList() {
+        return ballList;
     }
 }
