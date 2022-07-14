@@ -1,11 +1,33 @@
 package util;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Utils{
     public static boolean checkDuplicated(List<Integer> integerList){
         return new HashSet<>(integerList).size() >= integerList.size();
+    }
+
+
+    public static List<Integer> randomNumberGenerate(int size) {
+        if(size < 0 || size > 9){
+            return null;
+        }
+        List<Integer> numberList = new ArrayList<>();
+        List<Integer> totalNumberList = new ArrayList<>();
+        for(int i = 1 ; i <= 9; i++){
+            totalNumberList.add(i);
+        }
+        Random random = new Random();
+        for(int i = 0 ; i < size ; i++){
+            int min = 0;
+            int max = 10 - i - 1;
+            int index = random.ints(min,max)
+                    .findFirst()
+                    .orElseThrow(() -> {throw new ArrayIndexOutOfBoundsException();});
+            numberList.add(totalNumberList.get(index));
+            totalNumberList.remove(index);
+        }
+
+        return numberList;
     }
 }
