@@ -23,7 +23,7 @@ public class Balls {
     }
 
     private boolean validateNumbers(List<Integer> numberList){
-        return numberList.size() == BALLSIZE && Utils.checkDuplicated(numberList);
+        return Utils.validateNumbers(numberList,BALLSIZE);
     }
 
     public BallMatchStatus match(Ball ball) {

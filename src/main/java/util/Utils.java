@@ -1,10 +1,17 @@
 package util;
 
+import baseballgame.domain.Balls;
+
 import java.util.*;
 
 public class Utils{
     public static boolean checkDuplicated(List<Integer> integerList){
         return new HashSet<>(integerList).size() >= integerList.size();
+    }
+
+
+    public static boolean validateNumbers(List<Integer> numberList,Integer size){
+        return numberList.size() == size && Utils.checkDuplicated(numberList);
     }
 
 
